@@ -1,4 +1,4 @@
-## EndoCoontact2
+## EndoCootact2
 
 遠藤に連絡するアプリケーションです。
 
