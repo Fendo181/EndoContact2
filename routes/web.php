@@ -11,11 +11,21 @@
 |
 */
 
+/* default root*/
 Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
+/* task-list */
+
+Route::get('/',function(){
+    $links = \App\Link::all();
+    return view('welcome', ['links' => $links]);
+});
+
+
+/* EndoContact2 rooting*/
+Route::get('/top', function () {
     return view('contact.top');
 });
 
