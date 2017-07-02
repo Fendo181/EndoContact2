@@ -12,9 +12,10 @@
 */
 
 use Illuminate\Http\Request;
+use App\Link;
 
 /* default root*/
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
@@ -22,35 +23,39 @@ Route::get('/welcome', function () {
 
 
 Route::get('/link',function(){
-    $links = \App\Link::all();
+    $links = Link::all();
     return view('linklist.link', ['links' => $links]);
 });
+
+
 
 Route::get('/submit', function () {
     return view('linklist.submit');
 });
 
-Route::post('/submit', function(Request $request) {
+Route::post('/submit','LinkController@submit');
 
-    $validator = Validator::make($request->all(), [
-        'title' => 'required|max:255',
-        'url' => 'required|max:255',
-        'description' => 'required|max:255',
-    ]);
-    /* error Message  */
-    if ($validator->fails()) {
-        return back()
-            ->withInput()
-            ->withErrors($validator);
-    }
-
-    $link = new \App\Link;
-    $link->title = $request->title;
-    $link->url = $request->url;
-    $link->description = $request->description;
-    $link->save();
-    return redirect('/link');
-});
+// Route::post('/submit', function(Request $request) {
+//
+//     $validator = Validator::make($request->all(), [
+//         'title' => 'required|max:255',
+//         'url' => 'required|max:255',
+//         'description' => 'required|max:255',
+//     ]);
+//     /* error Message  */
+//     if ($validator->fails()) {
+//         return back()
+//             ->withInput()
+//             ->withErrors($validator);
+//     }
+//
+//     $link = new \App\Link;
+//     $link->title = $request->title;
+//     $link->url = $request->url;
+//     $link->description = $request->description;
+//     $link->save();
+//     return redirect('/link');
+// });
 
 /* EndoContact2 rooting*/
 Route::get('/top', function () {
