@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.default')
 @section('content')
 
 @section('content')
 <div class="row">
-    <h1>Submit a lin</h1>
+    <h1>Submit a link</h1>
     <form class="/submit" method="post">
         {!! csrf_field() !!}
         <div class="form-groupe">
             <label for="title">Title</label>
-            <label type="text" class="form-control" id="title" name="title" placeholder="Title"></label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Title">
         </div>
         <div class="form-group">
            <label for="url">Url</label>

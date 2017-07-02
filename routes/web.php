@@ -14,20 +14,20 @@
 use Illuminate\Http\Request;
 
 /* default root*/
-// Route::get('/welcome', function () {
-//     return view('welcome');
-// });
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 /* task-list */
 
 
-Route::get('/',function(){
+Route::get('/link',function(){
     $links = \App\Link::all();
-    return view('welcome', ['links' => $links]);
+    return view('linklist.link', ['links' => $links]);
 });
 
 Route::get('/submit', function () {
-    return view('submit');
+    return view('linklist.submit');
 });
 
 Route::post('/submit', function(Request $request) {
@@ -49,7 +49,7 @@ Route::post('/submit', function(Request $request) {
     $link->url = $request->url;
     $link->description = $request->description;
     $link->save();
-    return redirect('/');
+    return redirect('/link');
 });
 
 /* EndoContact2 rooting*/
