@@ -9,9 +9,7 @@
      <!-- <link rel="stylesheet" href="\css\styeles.css"> -->
      <!-- BootStrap -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-     <!-- BootStarp Thema Lumen -->
-     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" integrity="sha384-gv0oNvwnqzF6ULI9TVsSmnULNb3zasNysvWwfT/s4l8k5I+g6oFz9dye0wg3rQ2Q" crossorigin="anonymous">
-     <!-- Simple Themaをカスタマイズ -->
+     
      <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 
