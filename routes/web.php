@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Http\Request;
+
 /* default root*/
 // Route::get('/welcome', function () {
 //     return view('welcome');
@@ -18,11 +20,37 @@
 
 /* task-list */
 
+
 Route::get('/',function(){
     $links = \App\Link::all();
     return view('welcome', ['links' => $links]);
 });
 
+Route::get('/submit', function () {
+    return view('submit');
+});
+
+Route::post('/submit', function(Request $request) {
+
+    $validator = Validator::make($request->all(), [
+        'title' => 'required|max:255',
+        'url' => 'required|max:255',
+        'description' => 'required|max:255',
+    ]);
+    /* error Message  */
+    if ($validator->fails()) {
+        return back()
+            ->withInput()
+            ->withErrors($validator);
+    }
+
+    $link = new \App\Link;
+    $link->title = $request->title;
+    $link->url = $request->url;
+    $link->description = $request->description;
+    $link->save();
+    return redirect('/');
+});
 
 /* EndoContact2 rooting*/
 Route::get('/top', function () {
@@ -32,6 +60,7 @@ Route::get('/top', function () {
 Route::get('/post', function () {
     return view('contact.post');
 });
+
 
 // Route::get('/post','PostController@hello');
 
