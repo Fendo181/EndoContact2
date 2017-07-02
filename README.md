@@ -1,6 +1,6 @@
-## EndoCootact2
+## LaraveTutorial_LinkList
 
-遠藤に連絡するアプリケーションです。
+- [Step by Step Guide to Building Your First Laravel Application](https://laravel-news.com/your-first-laravel-application)
 
 ## Version
 
