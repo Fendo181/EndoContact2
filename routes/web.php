@@ -52,15 +52,6 @@ Route::post('/submit', function(Request $request) {
     return redirect('/link');
 });
 
-/* EndoContact2 rooting*/
-Route::get('/top', function () {
-    return view('contact.top');
-});
-
-Route::get('/post', function () {
-    return view('contact.post');
-});
-
 
 // Route::get('/post','PostController@hello');
 
