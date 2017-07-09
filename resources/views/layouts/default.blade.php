@@ -12,10 +12,6 @@
 
 </head>
 <body>
-    @if (session('flash_message'))
-     <div class="flash_message" onclick="this.classList.add('hidden')">{{ session('flash_message') }}</div>
-     @endif
-     
     {{-- コンテンツの表示 --}}
     <div class="container">
         @yield('content')
