@@ -14,15 +14,9 @@
 use Illuminate\Http\Request;
 use App\Link;
 
-/* default root*/
-Route::get('/', function () {
-    return view('welcome');
-});
 
 /* task-list */
-
-
-Route::get('/link',function(){
+Route::get('/',function(){
     $links = Link::all();
     return view('linklist.link', ['links' => $links]);
 });
@@ -40,17 +34,6 @@ Route::get('/link/{id}/edit','LinkController@edit');
 Route::patch('/link/{id}','LinkController@update');
 #Linklistを消去する。
 Route::delete('/link/{id}','LinkController@destroy');
-
-
-/* EndoContact2 rooting*/
-Route::get('/top', function () {
-    return view('contact.top');
-});
-
-Route::get('/post', function () {
-    return view('contact.post');
-});
-
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
