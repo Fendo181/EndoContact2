@@ -21,7 +21,6 @@ Route::get('/',function(){
     return view('linklist.link', ['links' => $links]);
 });
 
-#submitのビューページへ飛ぶ。
 Route::get('/submit', function () {
     return view('linklist.submit');
 });
