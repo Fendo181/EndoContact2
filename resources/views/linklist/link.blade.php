@@ -7,16 +7,20 @@ Home
 <h1>Link List Pages</h1>
 <h2>Add Link<a href="/submit">Click here</a></h2>
 @foreach ($links as $link)
-    <h3><a href="{{ $link->url }}">{{ $link->title }}</a></h3>
-    <a href="{{ action('LinkController@edit', $link->id) }}">Edit</a>
-    <form action="{{ action('LinkController@destroy', $link->id) }}" id="form_{{ $link->id }}" method="post">
-    {{ csrf_field() }}
-    {{ method_field('delete') }}
-    <a href="#" data-id="{{ $link->id }}" onclick="deletePost(this);">Delete</a>
-    </form>
-    <ul>
-        <li>{{ $link->description }}</li>
-    </ul>
+<div class="panel panel-default">
+    <div class="panel-body">
+            <h3 ><a href="{{ $link->url }}">{{ $link->title }}</a></h3>
+        <a href="{{ action('LinkController@edit', $link->id) }}">Edit</a>
+        <form action="{{ action('LinkController@destroy', $link->id) }}" id="form_{{ $link->id }}" method="post">
+            {{ csrf_field() }}
+            {{ method_field('delete') }}
+            <a href="#" data-id="{{ $link->id }}" onclick="deletePost(this);">Delete</a>
+        </form>
+        <ul>
+            <li>{{ $link->description }}</li>
+        </ul>
+    </div>
+</div>
 @endforeach
 
 <script>
