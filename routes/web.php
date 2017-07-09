@@ -39,9 +39,7 @@ Route::get('/link/{id}/edit','LinkController@edit');
 #Linklistの修正した内容を更新する。
 Route::patch('/link/{id}','LinkController@update');
 #Linklistを消去する。
-// Route::delete('/link/{id}','LinkController@destroy');
-
-
+Route::delete('/link/{id}','LinkController@destroy');
 
 
 /* EndoContact2 rooting*/
@@ -53,8 +51,6 @@ Route::get('/post', function () {
     return view('contact.post');
 });
 
-
-// Route::get('/post','PostController@hello');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

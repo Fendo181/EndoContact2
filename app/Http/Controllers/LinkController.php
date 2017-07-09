@@ -25,7 +25,6 @@ class LinkController extends Controller
 
     public function update(LinkRequest $request,$id)
     {
-        //記事を取得
         $link = link::findOrFail($id);
         $link->title = $request->title;
         $link->url = $request->url;
@@ -33,4 +32,11 @@ class LinkController extends Controller
         $link->save();
         return redirect('/link');
     }
+
+    public function destroy($id)
+       {
+           $link = Link::findOrFail($id);
+           $link -> delete();
+           return redirect('/link');
+      }
 }
