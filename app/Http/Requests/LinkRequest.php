@@ -25,7 +25,7 @@ class LinkRequest extends FormRequest
     {
         return [
             'title' => 'required|max:255',
-            'url' => 'required|max:255',
+            'url' => 'required|max:255|url',
             'description' => 'required|max:255',
         ];
     }
