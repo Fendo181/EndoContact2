@@ -12,17 +12,12 @@
 */
 
 use Illuminate\Http\Request;
+use App\Link;
 
-/* default root*/
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 
 /* task-list */
-
-
-Route::get('/link',function(){
-    $links = \App\Link::all();
+Route::get('/',function(){
+    $links = Link::all();
     return view('linklist.link', ['links' => $links]);
 });
 
@@ -30,31 +25,14 @@ Route::get('/submit', function () {
     return view('linklist.submit');
 });
 
-Route::post('/submit', function(Request $request) {
-
-    $validator = Validator::make($request->all(), [
-        'title' => 'required|max:255',
-        'url' => 'required|max:255',
-        'description' => 'required|max:255',
-    ]);
-    /* error Message  */
-    if ($validator->fails()) {
-        return back()
-            ->withInput()
-            ->withErrors($validator);
-    }
-
-    $link = new \App\Link;
-    $link->title = $request->title;
-    $link->url = $request->url;
-    $link->description = $request->description;
-    $link->save();
-    return redirect('/link');
-});
-
-
-// Route::get('/post','PostController@hello');
+#LinkListの投稿フォームへ遷移する。
+Route::post('/submit','LinkController@submit');
+#LinklistのEditページへ遷移する。
+Route::get('/link/{id}/edit','LinkController@edit');
+#Linklistの修正した内容を更新する。
+Route::patch('/link/{id}','LinkController@update');
+#Linklistを消去する。
+Route::delete('/link/{id}','LinkController@destroy');
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
