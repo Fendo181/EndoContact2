@@ -15,7 +15,7 @@ class LinkController extends Controller
         $link->url = $request->url;
         $link->description = $request->description;
         $link->save();
-        return redirect('/link');
+        return redirect('/');
     }
 
     public function edit($id){
@@ -30,13 +30,13 @@ class LinkController extends Controller
         $link->url = $request->url;
         $link->description = $request->description;
         $link->save();
-        return redirect('/link');
+        return redirect('/');
     }
 
     public function destroy($id)
        {
            $link = Link::findOrFail($id);
            $link -> delete();
-           return redirect('/link');
+           return redirect('/');
       }
 }
