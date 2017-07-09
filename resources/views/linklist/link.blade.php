@@ -7,7 +7,7 @@ Home
 <h1>Link List Pages</h1>
 <h2>Add Link<a href="/submit">Click here</a></h2>
 @foreach ($links as $link)
-    <a href="{{ $link->url }}"><h3>{{ $link->title }}</h3></a>
+    <h3><a href="{{ $link->url }}">{{ $link->title }}</a></h3>
     <a href="{{ action('LinkController@edit', $link->id) }}">Edit</a>
     <form action="{{ action('LinkController@destroy', $link->id) }}" id="form_{{ $link->id }}" method="post">
     {{ csrf_field() }}
