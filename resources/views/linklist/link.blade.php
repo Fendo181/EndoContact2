@@ -9,12 +9,12 @@ Home
 @foreach ($links as $link)
 <div class="panel panel-default">
     <div class="panel-body">
-            <h3 ><a href="{{ $link->url }}">{{ $link->title }}</a></h3>
-        <a href="{{ action('LinkController@edit', $link->id) }}">Edit</a>
-        <form action="{{ action('LinkController@destroy', $link->id) }}" id="form_{{ $link->id }}" method="post">
+        <h3 ><a href="{{ $link->url }}">{{ $link->title }}</a></h3>
+        <a href="{{ action('LinkController@edit', $link->id) }}" class="btn btn-primary">Edit</a>
             {{ csrf_field() }}
             {{ method_field('delete') }}
-            <a href="#" data-id="{{ $link->id }}" onclick="deletePost(this);">Delete</a>
+        <form action="{{ action('LinkController@destroy', $link->id) }}" id="form_{{ $link->id }}" method="post">
+        <a href="#" data-id="{{ $link->id }}" onclick="deletePost(this);" class="btn btn-danger">Delete</a>
         </form>
         <ul>
             <li>{{ $link->description }}</li>

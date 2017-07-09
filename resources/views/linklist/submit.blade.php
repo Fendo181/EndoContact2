@@ -31,7 +31,7 @@ Submit
                <div class="alert alert-danger">{{ $errors->first('description') }}</div>
            @endif
        </div>
-       <button type="submit" class="btn btn-default">Submit</button>
-       <a href="{{ url('/link') }}" class="btn btn-default" role="button">Back</a>
+       <button type="submit" class="btn btn-success">Submit</button>
+       <a href="{{ url('/') }}" class="btn btn-default" role="button">Back</a>
     </form>
 @endsection
