@@ -1,5 +1,9 @@
 @extends('layouts.default')
-@section('content')
+
+@section('title')
+Submit
+@endsection
+
 
 @section('content')
 <div class="row">
@@ -28,5 +32,6 @@
            @endif
        </div>
        <button type="submit" class="btn btn-default">Submit</button>
+       <a href="{{ url('/link') }}" class="btn btn-default" role="button">Back</a>
     </form>
 @endsection
