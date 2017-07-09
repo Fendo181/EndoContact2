@@ -27,11 +27,22 @@ Route::get('/link',function(){
     return view('linklist.link', ['links' => $links]);
 });
 
+#submitのビューページへ飛ぶ。
 Route::get('/submit', function () {
     return view('linklist.submit');
 });
 
+#LinkListの投稿フォームへ遷移する。
 Route::post('/submit','LinkController@submit');
+#LinklistのEditページへ遷移する。
+Route::get('/link/{id}/edit','LinkController@edit');
+#Linklistの修正した内容を更新する。
+Route::patch('/link/{id}','LinkController@update');
+#Linklistを消去する。
+// Route::delete('/link/{id}','LinkController@destroy');
+
+
+
 
 /* EndoContact2 rooting*/
 Route::get('/top', function () {
@@ -46,5 +57,4 @@ Route::get('/post', function () {
 // Route::get('/post','PostController@hello');
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
