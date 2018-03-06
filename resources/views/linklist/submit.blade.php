@@ -8,7 +8,7 @@ Submit
 @section('content')
 <div class="row">
     <h1>Submit a link</h1>
-    <form class="/submit" method="post">
+    <form action="/submit" method="post">
         {!! csrf_field() !!}
         <div class="form-groupe">
             <label for="title">Title</label>
